@@ -1,0 +1,153 @@
+import math
+import os
+
+global MEMORY; #global variable for memory functions (they can be called at the star)
+MEMORY = None;
+
+def Menu():
+    print("Choose the command: ")
+    print(" '+'-addition         '-'-subtraction \n" +
+          " '*'-multiplication   '/'- division    \n" +
+          " 'SQRT'- square root  'RECP'- reciprocal \n" +
+          " 'M+'- memory add     'M-'- memory subtract  \n" +
+          " 'MR'- memory remind  'MS'- memory store \n"+
+          " 'MC'- memory clear    'C'- clear all \n"+
+          " 'x' or 'X'- exit ")
+    
+def inputNum():
+    num = None
+    x = True
+    num = input("Enter the number: ")
+    if(x = inputnum.isdigit()):
+        return num
+    else:
+        print("Enter only numbers!")
+
+def addition():
+    a = inputNum()
+    b = inputNum()
+    result = a + b
+    return result
+    
+def subtraction():
+    a = inputNum()
+    b = inputNum()
+    result = a - b
+    return result
+
+def multiplication():
+    a = inputNum()
+    b = inputNum()
+    result = a * b
+    return result
+
+def division():
+    a = inputNum()
+    b = None
+    while True:
+        b = inputNum()
+        if b == 0:
+            print("Division by zero - impossible!")
+        else:
+            break
+    result = a / b
+    return result
+
+def squareRoot():
+    a = inputNum();
+    result = math.sqrt(a);
+    return result;
+    
+def reciprocal():
+    a = None
+    while True:
+        a = inputNum()
+        if a == 0:
+            print("Division by zero - impossible!")
+        else:
+            break
+    result = 1 / a
+    return result
+
+def memoryStore(result):
+    global MEMORY
+    MEMORY = result
+
+def memoryClear():
+    global MEMORY
+    MEMORY = None
+    
+def memoryRecall():
+    print("The current result in memory: " + str(MEMORY))
+
+def memoryAdd(result):
+    global MEMORY
+    if (MEMORY != None):  
+        MEMORY += result
+    else:
+        print("Empy memory! Add to it and retry!")
+    
+def memorySubtract(result):
+    global MEMORY
+    if (MEMORY != None):
+        MEMORY -= result;
+    else:
+        print("Empy memory! Add to it and retry!")
+
+Menu();
+ = input("Enter: ")
+result = None
+
+while(True):
+    if(command == '+'):
+      result = addition();
+      print("Result: " + str(result));
+      
+    elif(command == '-'):
+      result = subtraction();
+      print("Result: " + str(result));
+      
+    elif(command == '*'):
+      result = multiplication();
+      print("Result: " + str(result));
+      
+    elif(command == '/'):
+      result = division();
+      print("Result: " + str(result));
+      
+    elif(command == 'SQRT'):
+      result = squareRoot();
+      print("Result: " + str(result));
+      
+    elif(command == 'RECP'):
+      result = reciprocal();
+      print("Result: " + str(result));
+      
+    elif(command == 'MS'):
+        memoryStore(result);
+        
+    elif(command == 'MR'):
+        memoryRecall();
+        
+    elif(command == 'MC'):
+        memoryClear();
+        
+    elif(command == 'M+'):
+        memoryAdd(result);
+        memoryRecall();
+        
+    elif(command == 'M-'):
+        memorySubtract(result);
+        memoryRecall();
+
+    elif(command == 'C'):
+        clearCalc();
+        printMenu();
+        
+    elif(userinput == 'x' or userinput == 'X'):
+        exit();
+        
+    else:
+        print("Wrong input. Try again!");
+    command = input("Enter another action: ");
+
